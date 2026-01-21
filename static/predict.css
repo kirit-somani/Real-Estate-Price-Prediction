@@ -1,0 +1,251 @@
+:root {
+    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+body {
+    background: #f8fafc url('https://images.unsplash.com/photo-1451976426598-a7593bd6d0b2?auto=format&fit=crop&w=2000&q=80') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+.page-title {
+    color: #1e293b;
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin: 2rem 0 3rem;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInDown 0.5s ease-out;
+}
+
+.form-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    animation: slideUp 0.5s ease-out;
+    border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.form-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+    font-size: 1.2rem;
+    color: #6366f1;
+    margin-right: 0.5rem;
+    transition: var(--transition);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.form-label:hover .feature-icon {
+    transform: scale(1.2);
+}
+
+.form-control, .form-select {
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    outline: none;
+}
+
+.form-range {
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.form-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #6366f1;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 0 0 1px #6366f1;
+    transition: var(--transition);
+}
+
+.form-range::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.range-values {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.range-value {
+    font-size: 0.875rem;
+    color: #6366f1;
+    font-weight: 600;
+}
+
+.btn-predict {
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-predict:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+}
+
+.btn-predict i {
+    transition: var(--transition);
+}
+
+.btn-predict:hover i {
+    transform: translateX(5px);
+}
+
+.prediction-card {
+    background: var(--primary-gradient);
+    color: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: var(--card-shadow);
+    animation: slideUp 0.5s ease-out;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.prediction-card.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.prediction-value {
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    margin: 1rem 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: pulseScale 2s infinite;
+}
+
+Decorative Elements
+.decoration {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(99, 102, 241, 0.1), rgba(79, 70, 229, 0.1));
+    filter: blur(100px);
+    z-index: -1;
+}
+
+.decoration-1 {
+    top: -200px;
+    right: -200px;
+}
+
+.decoration-2 {
+    bottom: -200px;
+    left: -200px;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseScale {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .form-card {
+        padding: 1.5rem;
+    }
+    
+    .prediction-value {
+        font-size: 2.5rem;
+    }
+}
