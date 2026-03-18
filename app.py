@@ -24,15 +24,6 @@ def predict_page():
     avg_area = int(df['Total_Area'].mean())
     min_baths = int(df['Baths'].min())
     max_baths = int(df['Baths'].max())
-    return render_template('index.html',
-                         min_area=min_area,
-                         max_area=max_area,
-                         avg_area=avg_area,
-                         min_baths=min_baths,
-                         max_baths=max_baths,
-                         cities=cities,
-                         locations=locations)
-    max_baths = int(df['Baths'].max())
     min_bhk = int(df['Number of BHK'].min())
     max_bhk = int(df['Number of BHK'].max())
     
@@ -126,12 +117,6 @@ model = make_pipeline(
 )
 
 # Fit the model
-model.fit(X_train, y_train)
-
-# Calculate model metrics
-pred = model.predict(X_train)
-mae = np.mean(np.abs(pred - y_train))
-improvement = (baseline_mae - mae) / baseline_mae * 100
 model.fit(X_train, y_train)
 
 # Calculate Mean Absolute Error

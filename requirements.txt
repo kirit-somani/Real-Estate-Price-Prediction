@@ -1,0 +1,9 @@
+Flask
+pandas
+numpy
+scikit-learn
+category_encoders
+matplotlib
+seaborn
+ipywidgets
+gunicorn

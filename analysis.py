@@ -79,9 +79,14 @@ def create_visualizations(df):
     model.fit(X, y)
     y_pred = model.predict(X)
     
+    plt.subplot(3, 2, 2)
+    sns.residplot(x=y_pred, y=y, lowess=True, line_kws={'color': 'red'})
+    plt.title('Residual Plot', fontsize=12)
+    plt.xlabel('Predicted Price')
+    plt.ylabel('Residuals')
     
-    
-    
+    plt.tight_layout()
+    plt.show()
 
 if __name__ == '__main__':
     # Load and process data
